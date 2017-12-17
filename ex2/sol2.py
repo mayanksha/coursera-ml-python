@@ -66,9 +66,9 @@ initial_theta = np.zeros(XX.shape[1])
 print(costFunction(initial_theta, 1, XX, y))
 
 #fig is the plt object, axes is an ndarray containing each plot
-fig, axes = plt.subplots(1,3, sharey=True, figsize=(17,5))
+fig, axes = plt.subplots(1,4, sharey=True, figsize=(20,10))
 
-for i, C in enumerate([0,1,100]):
+for i, C in enumerate([0,1,5,100]):
     res2 = minimize(costFunction, initial_theta, args=(C, XX, y), method=None, jac=gradient, options={'maxiter' : 3000})
     
     accuracy = 100*sum(predict(res2.x, XX) == y.ravel())/y.size    
